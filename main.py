@@ -10,8 +10,6 @@ import re
 import json
 import sys
 import time
-import requests
-import os
 from urllib.parse import quote
 
 import requests
@@ -350,17 +348,8 @@ def push_wx(_sckey, desp=""):
             print(f"[{now}] 推送成功。")
         else:
             print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
-            
-def push_qq(desp=""): #CoolPush酷推
-    # cpurl = 'https://push.xuthus.cc/group/'+spkey   #推送到QQ群
-    # cpurl = 'https://push.xuthus.cc/send/' + SKey  # 推送到个人QQ
-    api='https://push.xuthus.cc/psend/{}'.format(SKey)
-    tdwt = "【小米运动 步数修改】\n✁-----------------------------------------\n" + desp
-    print(api)
-    print(tdwt)
-    requests.post(api, tdwt.encode('utf-8'))
-            
-def push_qqq(_sckey, desp=""):
+
+def push_qq(_sckey, desp=""):
     """
     推送 QQ
     """
