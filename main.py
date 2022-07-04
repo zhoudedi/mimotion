@@ -349,7 +349,7 @@ def push_wx(_sckey, desp=""):
         else:
             print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
             
- def push_qq(_sckey, desp=""):
+def push_qq(_sckey, desp=""):
     """
     推送 QQ
     """
