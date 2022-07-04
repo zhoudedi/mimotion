@@ -12,8 +12,6 @@ import sys
 import time
 from urllib.parse import quote
 
-import requests
-SKey=os.environ.get('PKEY') #CoolPush酷推KEY
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 headers = {
     'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
