@@ -348,6 +348,25 @@ def push_wx(_sckey, desp=""):
             print(f"[{now}] 推送成功。")
         else:
             print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
+            
+ def push_qq(_sckey, desp=""):
+    """
+    推送 QQ
+    """
+    if _sckey == '':
+        print("[注意] 未提供sckey，不进行推送！")
+    else:
+        server_url = 'https://push.xuthus.cc/psend/{_sckey}'
+        tdwt = "【小米运动 步数修改】\n✁-----------------------------------------\n" + desp
+        print(server_url)
+        print(tdwt)
+        response = requests.get(server_url, twdt.encode('utf-8'))
+        json_data = response.json()
+
+        if json_data['errno'] == 0:
+            print(f"[{now}] 推送成功。")
+        else:
+            print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
 
 
 def push_server(_sckey, desp=""):
@@ -502,6 +521,14 @@ class ToPush:
         if str(self.pkey) == '0':
             self.pkey = ''
         push_wx(self.pkey, self.push_msg)
+        
+        def to_push_qq(self):
+        """
+        推送server酱接口
+        """
+        if str(self.pkey) == '0':
+            self.pkey = ''
+        push_qq(self.pkey, self.push_msg)
 
     def to_push_server(self):
         """
@@ -590,6 +617,7 @@ if __name__ == "__main__":
             'tg': to_push.to_push_tg,
             'qwx': to_push.to_wxpush,
             'pp': to_push.to_push_pushplus,
+            'qq': to_push.to_push_qq,
             'off': to_push.no_push
         }
         try:
