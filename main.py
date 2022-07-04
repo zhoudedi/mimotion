@@ -522,7 +522,7 @@ class ToPush:
             self.pkey = ''
         push_wx(self.pkey, self.push_msg)
         
-        def to_push_qq(self):
+    def to_push_qq(self):
         """
         推送QQ接口
         """
