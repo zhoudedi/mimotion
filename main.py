@@ -360,7 +360,7 @@ def push_qq(_sckey, desp=""):
         tdwt = "【小米运动 步数修改】\n✁-----------------------------------------\n" + desp
         print(server_url)
         print(tdwt)
-        response = requests.get(server_url, twdt.encode('utf-8'))
+        response = requests.get(server_url, tdwt.encode('utf-8'))
         json_data = response.json()
 
         if json_data['errno'] == 0:
