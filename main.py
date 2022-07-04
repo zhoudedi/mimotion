@@ -524,7 +524,7 @@ class ToPush:
         
         def to_push_qq(self):
         """
-        推送server酱接口
+        推送QQ接口
         """
         if str(self.pkey) == '0':
             self.pkey = ''
