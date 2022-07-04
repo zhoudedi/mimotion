@@ -1,7 +1,7 @@
 name: 刷步数
 
 on:
-  repository_dispatch:
+repository_dispatch
   #push:
     #branches: [ main ]
   #pull_request:
@@ -11,7 +11,9 @@ on:
   #watch:
     #types: started
    
-jobs:
+jobs:  
+run:
+    runs-on: ubuntu-latest
   build:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
