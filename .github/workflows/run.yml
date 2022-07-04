@@ -2,10 +2,10 @@ name: 刷步数
 
 on:
   repository_dispatch:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
   schedule:
     - cron: 35 8 * * *
   #watch:
