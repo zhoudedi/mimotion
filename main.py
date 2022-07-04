@@ -94,6 +94,9 @@ def main(_user, _passwd, _step):
         print("登陆失败！")
         return "login fail!"
 
+    curl test.ipw.cn
+    curl 4.ipw.cn
+    
     t = get_time()
 
     app_token = get_app_token(login_token)
