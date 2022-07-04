@@ -10,10 +10,12 @@ import re
 import json
 import sys
 import time
+import requests
+import os
 from urllib.parse import quote
 
 import requests
-
+SKey=os.environ.get('PKEY') #CoolPush酷推KEY
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 headers = {
     'User-Agent': 'Dalvik/2.1.0 (Linux; U; Android 9; MI 6 MIUI/20.6.18)'
@@ -349,7 +351,16 @@ def push_wx(_sckey, desp=""):
         else:
             print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
             
-def push_qq(_sckey, desp=""):
+def push_qq(desp=""): #CoolPush酷推
+    # cpurl = 'https://push.xuthus.cc/group/'+spkey   #推送到QQ群
+    # cpurl = 'https://push.xuthus.cc/send/' + SKey  # 推送到个人QQ
+    api='https://push.xuthus.cc/psend/{}'.format(SKey)
+    tdwt = "【小米运动 步数修改】\n✁-----------------------------------------\n" + desp
+    print(api)
+    print(tdwt)
+    requests.post(api, tdwt.encode('utf-8'))
+            
+def push_qqq(_sckey, desp=""):
     """
     推送 QQ
     """
@@ -360,14 +371,7 @@ def push_qq(_sckey, desp=""):
         tdwt = "【小米运动 步数修改】\n✁-----------------------------------------\n" + desp
         print(server_url)
         print(tdwt)
-        response = requests.get(server_url, tdwt.encode('utf-8'))
-        json_data = response.json()
-
-        if json_data['errno'] == 0:
-            print(f"[{now}] 推送成功。")
-        else:
-            print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
-
+        requests.get(server_url, tdwt.encode('utf-8'))
 
 def push_server(_sckey, desp=""):
     """
