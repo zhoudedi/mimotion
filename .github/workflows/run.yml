@@ -2,12 +2,7 @@ name: 刷步数
 
 on:
   repository_dispatch:
-  开始刷步:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
+  workflow_dispatch:
   #push:
     #branches: [ main ]
   #pull_request:
