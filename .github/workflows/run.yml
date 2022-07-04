@@ -2,20 +2,14 @@ name: 刷步数
 
 on:
   repository_dispatch:
-  workflow_dispatch:
-    inputs:
-      ssh:
-        description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
-  #push:
-    #branches: [ main ]
-  #pull_request:
-    #branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   schedule:
     - cron: 35 8 * * *
   #watch:
-   # types: started
+    #types: started
    
 jobs:
   build:
