@@ -299,7 +299,7 @@ def main(_user, _passwd, _step):
 
     response = requests.post(url, data=data, headers=head).json()
     # print(response)
-    result = "账号：" + f"{_user[:4]}****{_user[-4:]}" + "\n时间：" + f"[{now}]" + "\n随机步数：" + f"{_step}" + "\n反馈： √"
+    result = "\n时间：" + f"[{now}]" + "账号：" + f"{_user[:4]}****{_user[-4:]}" + "\n随机步数：" + f"{_step}" + "\n反馈： √\n"
     print(result)
     return result
 
@@ -358,7 +358,7 @@ def push_qqq(_sckey, desp=""):
     else:
         #server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
         server_url = f"https://push.xuthus.cc/psend/{_sckey}" #推送到个人QQ
-        desp="【小周自动刷步❤️】" + "\n✁-----------------------------------------\n"+desp
+        desp="【小周自动刷步❤️】" + "\n✁-----------------------------------------\n" + desp + "---------------ღ"
         response = requests.post(server_url, desp.encode('utf-8')) 
         #response = requests.get(server_url, desp)
         json_data = response.json()
