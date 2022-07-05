@@ -357,12 +357,9 @@ def push_qqq(_sckey, desp=""):
         print("[注意] 未提供sckey，不进行推送！")
     else:
         server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
-        params = {
-            "text": '小米运动 步数修改',
-            "desp": desp
-        }
+        desp=desp
         #response = requests.post(server_url, params.encode('utf-8')) 
-        response = requests.get(server_url, params=params)
+        response = requests.get(server_url, desp)
         json_data = response.json()
 
         if json_data['errno'] == 0:
