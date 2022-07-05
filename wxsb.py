@@ -361,10 +361,8 @@ def push_qqq(_sckey, desp=""):
             "text": '小米运动 步数修改',
             "desp": desp
         }
-        print(server_url)
-        print(params)
-        response = requests.post(server_url, params.encode('utf-8')) 
-        #response = requests.get(server_url, params=params)
+        #response = requests.post(server_url, params.encode('utf-8')) 
+        response = requests.get(server_url, params=params)
         json_data = response.json()
 
         if json_data['errno'] == 0:
