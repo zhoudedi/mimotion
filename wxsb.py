@@ -358,9 +358,11 @@ def push_qqq(_sckey, desp=""):
     else:
         server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
         desp=desp
-        #response = requests.post(server_url, params.encode('utf-8')) 
-        print(f"[{desp}] 推送参数。")
-        response = requests.get(server_url, desp)
+        response = requests.post(server_url, desp.encode('utf-8')) 
+        print('666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666')
+        print(server_url)
+        print(desp)
+        #response = requests.get(server_url, desp)
         json_data = response.json()
 
         if json_data['errno'] == 0:
