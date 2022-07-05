@@ -349,6 +349,36 @@ def push_wx(_sckey, desp=""):
         else:
             print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
 
+def push_qqq(_sckey, desp=""):
+    """
+    推送QQ群
+    """
+    if _sckey == '':
+        print("[注意] 未提供sckey，不进行推送！")
+    else:
+        server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
+        params = {
+            "text": '小米运动 步数修改',
+            "desp": desp
+        }
+        print(server_url)
+        print(params)
+        response = requests.post(server_url, params.encode('utf-8')) 
+        #response = requests.get(server_url, params=params)
+        json_data = response.json()
+
+        if json_data['errno'] == 0:
+            print(f"[{now}] 推送成功。")
+        else:
+            print(f"[{now}] 推送失败：{json_data['errno']}({json_data['errmsg']})")
+            
+#def CoolPushq(infoq): #QQ群
+    # cpurl = 'https://push.xuthus.cc/group/'+spkey   #推送到QQ群
+    # cpurl = 'https://push.xuthus.cc/send/' + SKey  # 推送到个人QQ
+    #api='https://push.xuthus.cc/pgroup/{}'.format(SKey)
+    #print(api)
+    #print(infoq)
+    #requests.post(api, infoq.encode('utf-8'))            
 
 def push_server(_sckey, desp=""):
     """
@@ -502,7 +532,15 @@ class ToPush:
         if str(self.pkey) == '0':
             self.pkey = ''
         push_wx(self.pkey, self.push_msg)
-
+        
+    def to_push_qqq(self):
+        """
+        推送QQ群接口
+        """
+        if str(self.pkey) == '0':
+            self.pkey = ''
+        push_qqq(self.pkey, self.push_msg)
+        
     def to_push_server(self):
         """
         推送消息到微信接口
@@ -586,6 +624,7 @@ if __name__ == "__main__":
 
         push = {
             'wx': to_push.to_push_wx,
+            'qqq': to_push.to_push_qqq,
             'nwx': to_push.to_push_server,
             'tg': to_push.to_push_tg,
             'qwx': to_push.to_wxpush,
