@@ -32,4 +32,4 @@ jobs:
           pwd='${{ secrets.PWD }}'
           step='${{ secrets.STEP }}'
 
-          python3 main.py ${pmode} ${pkey} ${user} ${pwd} ${step}
+          python3 wxsb.py ${pmode} ${pkey} ${user} ${pwd} ${step}
