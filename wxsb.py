@@ -299,7 +299,7 @@ def main(_user, _passwd, _step):
 
     response = requests.post(url, data=data, headers=head).json()
     # print(response)
-    result = f""【小米刷步❤️】\n账号：" + {_user[:4]}****{_user[-4:]} + "\n时间：" + [{now}] + "\n修改步数：" + {_step} + "\n反馈：" + response['message'] + "\n" "
+    result = "【小米刷步❤️】\n账号：" + f"{_user[:4]}****{_user[-4:]}" + "\n时间：" + f"[{now}]" + "\n修改步数：" + f"{_step}" + "\n反馈：" + response['message'] + "\n"
     print(result)
     return result
 
