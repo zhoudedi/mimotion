@@ -299,7 +299,7 @@ def main(_user, _passwd, _step):
 
     response = requests.post(url, data=data, headers=head).json()
     # print(response)
-    result = f"{_user[:4]}****{_user[-4:]}: [{now}] 修改步数（{_step}）" + response['message']
+    result = f"【今日份天气❤️】\n账号：" +{_user[:4]}****{_user[-4:]} + "\n时间：" + [{now}]  + "\n修改步数" + {_step}" +  + response['message'] + "\n"
     print(result)
     return result
 
@@ -359,12 +359,9 @@ def push_qqq(_sckey, desp=""):
         server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
         desp=desp
         response = requests.post(server_url, desp.encode('utf-8')) 
-        print('666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666')
-        print(server_url)
-        print(desp)
         #response = requests.get(server_url, desp)
         json_data = response.json()
-
+        print(json_data)
         if json_data['errno'] == 0:
             print(f"[{now}] 推送成功。")
         else:
