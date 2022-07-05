@@ -359,6 +359,7 @@ def push_qqq(_sckey, desp=""):
         server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
         desp=desp
         #response = requests.post(server_url, params.encode('utf-8')) 
+        print(f"[{desp}] 推送参数。")
         response = requests.get(server_url, desp)
         json_data = response.json()
 
