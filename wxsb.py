@@ -299,7 +299,7 @@ def main(_user, _passwd, _step):
 
     response = requests.post(url, data=data, headers=head).json()
     # print(response)
-    result = "\n时间：" + f"[{now}]" + "账号：" + f"{_user[:4]}****{_user[-4:]}" + "\n随机步数：" + f"{_step}" + "\n反馈： √\n"
+    result = "时间：" + f"[{now}]" + "账号：" + f"{_user[:4]}****{_user[-4:]}" + "\n随机步数：" + f"{_step}" + "\n反馈： √\n"
     print(result)
     return result
 
