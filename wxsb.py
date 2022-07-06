@@ -356,8 +356,8 @@ def push_qqq(_sckey, desp=""):
     if _sckey == '':
         print("[注意] 未提供sckey，不进行推送！")
     else:
-        #server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
-        server_url = f"https://push.xuthus.cc/psend/{_sckey}" #推送到个人QQ
+        server_url = f"https://push.xuthus.cc/pgroup/{_sckey}"
+        #server_url = f"https://push.xuthus.cc/psend/{_sckey}" #推送到个人QQ
         desp="【小周自动刷步❤️】" + "\n✁-----------------------------------------\n" + desp + "---------------ღ"
         response = requests.post(server_url, desp.encode('utf-8')) 
         #response = requests.get(server_url, desp)
