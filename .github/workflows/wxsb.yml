@@ -8,7 +8,7 @@ on:
   #pull_request:
     #branches: [ main ]
   schedule:
-    - cron: 28 19 * * *
+    - cron: 30 17 * * *
   #watch:
     #types: started
    
