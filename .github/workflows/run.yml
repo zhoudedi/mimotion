@@ -2,13 +2,13 @@ name: 刷步数
 
 on:
   repository_dispatch:
-  workflow_dispatch:
+  #workflow_dispatch:
   #push:
     #branches: [ main ]
   #pull_request:
     #branches: [ main ]
-  schedule:
-    - cron: 35 8 * * *
+  #schedule:
+    #- cron: 35 8 * * *
   #watch:
     #types: started
    
